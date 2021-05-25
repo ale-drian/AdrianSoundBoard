@@ -21,11 +21,17 @@ class SoundViewController: UIViewController {
     var grabarAudio:AVAudioRecorder?
     var reproducirAudio:AVAudioPlayer?
     var audioURL:URL?
+    var timer = Timer()
     
     @IBOutlet weak var grabarButton: UIButton!
     @IBOutlet weak var reproducirButton: UIButton!
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var agregarButton: UIButton!
+    @IBOutlet weak var tiempoGrabacion: UILabel!
+    
+    @objc func duracionAudio(){
+       tiempoGrabacion.text = grabarAudio?.currentTime.stringFromTimeInterval()
+    }
     
     @IBAction func grabarTapped(_ sender: Any) {
         if grabarAudio!.isRecording{
@@ -35,12 +41,14 @@ class SoundViewController: UIViewController {
             grabarButton.setTitle("GRABAR", for: .normal)
             reproducirButton.isEnabled = true
             agregarButton.isEnabled = true
+            timer.invalidate()
         }else{
             //empezar la grabacion
             grabarAudio?.record()
             //cambiar el texto del boton grabar a detener
             grabarButton.setTitle("DETENER", for: .normal)
             reproducirButton.isEnabled = false
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target:self, selector: #selector(SoundViewController.duracionAudio), userInfo: nil, repeats: true)
         }
     }
     
@@ -93,14 +101,21 @@ class SoundViewController: UIViewController {
             print(error)
         }
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+extension TimeInterval{
+
+    func stringFromTimeInterval2() -> String {
+
+        let time = NSInteger(self)
+
+        let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+
+        return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
+
     }
-    */
-
 }

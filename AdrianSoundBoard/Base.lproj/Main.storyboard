@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORL-nU-HYe">
-                                <rect key="frame" x="20" y="212" width="374" height="30"/>
+                                <rect key="frame" x="20" y="276" width="374" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Zvd-Na-fLr"/>
@@ -75,12 +75,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Nombre de Audio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUt-KA-XiA">
-                                <rect key="frame" x="20" y="262" width="374" height="37"/>
+                                <rect key="frame" x="20" y="326" width="374" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwG-rO-7I2">
-                                <rect key="frame" x="158" y="319" width="130" height="40"/>
+                                <rect key="frame" x="158" y="383" width="130" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="GbL-3a-pJm"/>
@@ -107,16 +107,24 @@
                                     <action selector="grabarTapped:" destination="Hq7-7y-GqL" eventType="touchUpInside" id="grW-KZ-wU3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jab-vS-aak">
+                                <rect key="frame" x="143" y="212" width="128.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="RwG-rO-7I2" firstAttribute="top" secondItem="lUt-KA-XiA" secondAttribute="bottom" constant="20" id="JTr-T6-cRy"/>
                             <constraint firstItem="KUY-0Q-c7T" firstAttribute="centerX" secondItem="cN1-s3-b2i" secondAttribute="centerX" id="KBV-eo-zNb"/>
                             <constraint firstItem="T3G-jb-1SU" firstAttribute="trailing" secondItem="ORL-nU-HYe" secondAttribute="trailing" constant="20" id="N1F-ra-xST"/>
+                            <constraint firstItem="Jab-vS-aak" firstAttribute="top" secondItem="cHs-Pu-ZdK" secondAttribute="bottom" constant="30" id="PbA-fd-jhZ"/>
+                            <constraint firstItem="ORL-nU-HYe" firstAttribute="top" secondItem="Jab-vS-aak" secondAttribute="bottom" constant="40" id="T1L-36-s6t"/>
                             <constraint firstItem="T3G-jb-1SU" firstAttribute="trailing" secondItem="lUt-KA-XiA" secondAttribute="trailing" constant="20" id="UOE-9m-anU"/>
                             <constraint firstItem="RwG-rO-7I2" firstAttribute="leading" secondItem="T3G-jb-1SU" secondAttribute="leading" constant="158" id="YW2-Ax-4G4"/>
+                            <constraint firstItem="Jab-vS-aak" firstAttribute="centerX" secondItem="cN1-s3-b2i" secondAttribute="centerX" id="YXn-Xq-Kot"/>
                             <constraint firstItem="KUY-0Q-c7T" firstAttribute="top" secondItem="T3G-jb-1SU" secondAttribute="top" constant="20" id="bmW-ta-WJb"/>
-                            <constraint firstItem="ORL-nU-HYe" firstAttribute="top" secondItem="cHs-Pu-ZdK" secondAttribute="bottom" constant="30" id="ew3-gM-4yu"/>
                             <constraint firstItem="lUt-KA-XiA" firstAttribute="top" secondItem="ORL-nU-HYe" secondAttribute="bottom" constant="20" id="fjB-ew-LGz"/>
                             <constraint firstItem="cHs-Pu-ZdK" firstAttribute="centerX" secondItem="cN1-s3-b2i" secondAttribute="centerX" id="hKV-FV-XPe"/>
                             <constraint firstItem="cHs-Pu-ZdK" firstAttribute="top" secondItem="KUY-0Q-c7T" secondAttribute="bottom" constant="20" id="l2N-Zw-zaM"/>
@@ -133,6 +141,7 @@
                         <outlet property="grabarButton" destination="KUY-0Q-c7T" id="550-Zh-nbK"/>
                         <outlet property="nombreTextField" destination="lUt-KA-XiA" id="5Mz-ei-KXm"/>
                         <outlet property="reproducirButton" destination="cHs-Pu-ZdK" id="M5Z-vd-8BF"/>
+                        <outlet property="tiempoGrabacion" destination="Jab-vS-aak" id="KPt-Kn-LhD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mr0-Yr-yNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
